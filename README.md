@@ -1,5 +1,27 @@
-This package contains:
+# Irihi.AvaloniaFonts.XiaolaiSC
 
-Font files: Licensed under OFL-1.1.
+Xiaolai Fonts for Avalonia
 
-Helper code: Licensed under MIT.
+# How to Use
+
+## Installation
+
+```bash
+dotnet add package Irihi.AvaloniaFonts.XiaolaiSC
+```
+
+or
+
+```bash
+dotnet add package Irihi.AvaloniaFonts.XiaolaiMonoSC
+```
+
+Include Xiaolai Fonts in Program.cs:
+
+```csharp
+public static AppBuilder BuildAvaloniaApp()
+    => AppBuilder.Configure<App>()
+        .UsePlatformDetect()
+        .WithXiaolaiSCFont()
+        //.WithXiaolaiMonoSCFont()
+```
