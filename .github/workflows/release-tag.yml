@@ -5,17 +5,6 @@ on:
     tags:
       - "v[0-9]+.[0-9]+.[0-9]+"
   workflow_dispatch:
-    inputs:
-      Xiaolai_SC:
-        description: 'Pack Xiaolai SC'
-        required: true
-        default: 'true'
-        type: boolean
-      Xiaolai_Mono_SC:
-        description: 'Pack Xiaolai Mono SC'
-        required: true
-        default: 'true'
-        type: boolean
 
 jobs:
   pack:
@@ -26,11 +15,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Pack Xiaolai SC
-        if: ${{ github.event.inputs.Xiaolai_SC == 'true' }}
         run: dotnet pack Irihi.AvaloniaFonts.XiaolaiSC -o nugets
 
       - name: Pack Xiaolai Mono SC
-        if: ${{ github.event.inputs.Xiaolai_Mono_SC == 'true' }}
         run: dotnet pack Irihi.AvaloniaFonts.XiaolaiMonoSC -o nugets
 
       - name: Publish NuGet package
