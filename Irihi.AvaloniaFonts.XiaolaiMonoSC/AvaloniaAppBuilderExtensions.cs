@@ -5,7 +5,7 @@ namespace Irihi.AvaloniaFonts.XiaolaiMonoSC;
 
 public static class AvaloniaAppBuilderExtensions
 {
-    public static AppBuilder WithXiaolaiSCFont(this AppBuilder builder)
+    public static AppBuilder WithXiaolaiMonoSCFont(this AppBuilder builder)
     {
         const string uri = "avares://Irihi.AvaloniaFonts.XiaolaiMonoSC/Assets#Xiaolai Mono SC";
         return builder.With(new FontManagerOptions
