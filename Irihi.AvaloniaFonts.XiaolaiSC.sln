@@ -4,6 +4,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Irihi.AvaloniaFonts.Xiaolai
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Irihi.AvaloniaFonts.XiaolaiMonoSC", "Irihi.AvaloniaFonts.XiaolaiMonoSC\Irihi.AvaloniaFonts.XiaolaiMonoSC.csproj", "{D08F51FD-C116-4AFA-A586-EF0EE9CBB1C8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GitHub Action", "GitHub Action", "{57A17B9E-33B4-46A0-8BEF-AD4E7E85C680}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\pack-nightly.yml = .github\workflows\pack-nightly.yml
+		.github\workflows\release-tag.yml = .github\workflows\release-tag.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

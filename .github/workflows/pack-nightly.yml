@@ -1,0 +1,55 @@
+name: Pack Nightly
+
+on:
+  workflow_dispatch:
+    inputs:
+      Version_Prefix:
+        description: 'Version Prefix'
+        required: true
+        default: '11.0.999'
+        type: string
+      Xiaolai_SC:
+        description: 'Pack Xiaolai SC'
+        required: true
+        default: 'true'
+        type: boolean
+      Xiaolai_Mono_SC:
+        description: 'Pack Xiaolai Mono SC'
+        required: true
+        default: 'true'
+        type: boolean
+
+jobs:
+  Pack_Nightly:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.1.1
+
+      - name: Get Version
+        run: |
+          VERSION_TIMESTAMP=$(date +'%Y%m%d%H%M%S')
+          VERSION="${{ github.event.inputs.Version_Prefix }}-nightly-${VERSION_TIMESTAMP}"
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+
+      - name: Pack Xiaolai SC
+        if: ${{ github.event.inputs.Xiaolai_SC == 'true' }}
+        run: dotnet pack Irihi.AvaloniaFonts.XiaolaiSC -o nugets /p:Version=${{ env.VERSION }}
+
+      - name: Pack Xiaolai Mono SC
+        if: ${{ github.event.inputs.Xiaolai_Mono_SC == 'true' }}
+        run: dotnet pack Irihi.AvaloniaFonts.XiaolaiMonoSC -o nugets /p:Version=${{ env.VERSION }}
+
+      - name: Add NuGet Source
+        run: dotnet nuget add source ${{ secrets.IRIHI_NUGET_NIGHTLY_FEED }} -n irihi.tech -u ${{ secrets.IRIHI_NUGET_USERNAME }} -p ${{ secrets.IRIHI_NUGET_PASSWORD }} --store-password-in-clear-text
+
+      - name: Publish Nightly Package
+        run: dotnet nuget push "./nugets/*.nupkg" --api-key ${{ secrets.IRIHI_NUGET_API_KEY }} --source irihi.tech --skip-duplicate
+
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v4.3.1
+        with:
+          name: nugets
+          path: ./nugets
+        if: always()

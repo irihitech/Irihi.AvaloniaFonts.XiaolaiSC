@@ -1,0 +1,62 @@
+name: Release Tag
+
+on:
+  push:
+    tags:
+      - "v[0-9]+.[0-9]+.[0-9]+"
+  workflow_dispatch:
+    inputs:
+      Xiaolai_SC:
+        description: 'Pack Xiaolai SC'
+        required: true
+        default: 'true'
+        type: boolean
+      Xiaolai_Mono_SC:
+        description: 'Pack Xiaolai Mono SC'
+        required: true
+        default: 'true'
+        type: boolean
+
+jobs:
+  pack:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Pack Xiaolai SC
+        if: ${{ github.event.inputs.Xiaolai_SC == 'true' }}
+        run: dotnet pack Irihi.AvaloniaFonts.XiaolaiSC -o nugets
+
+      - name: Pack Xiaolai Mono SC
+        if: ${{ github.event.inputs.Xiaolai_Mono_SC == 'true' }}
+        run: dotnet pack Irihi.AvaloniaFonts.XiaolaiMonoSC -o nugets
+
+      - name: Publish NuGet package
+        run: dotnet nuget push "./nugets/*.nupkg" --api-key ${{ secrets.NUGET_ORG_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
+
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v4.3.1
+        with:
+          name: nugets
+          path: ./nugets
+        if: always()
+
+  draft-release:
+    needs: [ pack ]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download nugets Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: nugets
+
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/') || github.event_name == 'workflow_dispatch'
+        with:
+          generate_release_notes: true
+          draft: true
+          files: |
+            *.nupkg
