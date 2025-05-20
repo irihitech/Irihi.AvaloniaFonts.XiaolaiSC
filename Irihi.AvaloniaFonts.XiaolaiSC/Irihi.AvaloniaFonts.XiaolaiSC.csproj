@@ -25,6 +25,8 @@
     </ItemGroup>
 
     <ItemGroup>
-        <AvaloniaResource Include="..\Fonts\XiaolaiSC-Regular.ttf"/>
+        <AvaloniaResource Include="..\Fonts\XiaolaiSC-Regular.ttf">
+            <Link>Assets\XiaolaiSC-Regular.ttf</Link>
+        </AvaloniaResource>
     </ItemGroup>
 </Project>
