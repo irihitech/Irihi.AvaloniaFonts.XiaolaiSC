@@ -1,8 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Irihi.AvaloniaFonts.XiaolaiSC", "Irihi.AvaloniaFonts.XiaolaiSC\Irihi.AvaloniaFonts.XiaolaiSC.csproj", "{BA6A8427-5D3A-4B85-8059-D5E39E25C758}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Irihi.Avalonia.Fonts.XiaolaiSC", "Irihi.Avalonia.Fonts.XiaolaiSC\Irihi.Avalonia.Fonts.XiaolaiSC.csproj", "{BA6A8427-5D3A-4B85-8059-D5E39E25C758}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Irihi.AvaloniaFonts.XiaolaiMonoSC", "Irihi.AvaloniaFonts.XiaolaiMonoSC\Irihi.AvaloniaFonts.XiaolaiMonoSC.csproj", "{D08F51FD-C116-4AFA-A586-EF0EE9CBB1C8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Irihi.Avalonia.Fonts.XiaolaiMonoSC", "Irihi.Avalonia.Fonts.XiaolaiMonoSC\Irihi.Avalonia.Fonts.XiaolaiMonoSC.csproj", "{D08F51FD-C116-4AFA-A586-EF0EE9CBB1C8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GitHub Action", "GitHub Action", "{57A17B9E-33B4-46A0-8BEF-AD4E7E85C680}"
 	ProjectSection(SolutionItems) = preProject

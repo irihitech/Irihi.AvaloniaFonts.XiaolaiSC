@@ -1,13 +1,13 @@
 using Avalonia;
 using Avalonia.Media;
 
-namespace Irihi.AvaloniaFonts.XiaolaiMonoSC;
+namespace Irihi.Avalonia.Fonts.XiaolaiMonoSC;
 
 public static class AvaloniaAppBuilderExtensions
 {
     public static AppBuilder WithXiaolaiMonoSCFont(this AppBuilder builder)
     {
-        const string uri = "avares://Irihi.AvaloniaFonts.XiaolaiMonoSC/Assets#Xiaolai Mono SC";
+        const string uri = "avares://Irihi.Avalonia.Fonts.XiaolaiMonoSC/Assets#Xiaolai Mono SC";
         return builder.With(new FontManagerOptions
         {
             DefaultFamilyName = uri,

@@ -6,7 +6,7 @@ on:
       Version_Prefix:
         description: 'Version Prefix'
         required: true
-        default: '11.0.999'
+        default: '0.0.999'
         type: string
       Xiaolai_SC:
         description: 'Pack Xiaolai SC'
@@ -35,11 +35,11 @@ jobs:
 
       - name: Pack Xiaolai SC
         if: ${{ github.event.inputs.Xiaolai_SC == 'true' }}
-        run: dotnet pack Irihi.AvaloniaFonts.XiaolaiSC -o nugets /p:Version=${{ env.VERSION }}
+        run: dotnet pack Irihi.Avalonia.Fonts.XiaolaiSC -o nugets /p:Version=${{ env.VERSION }}
 
       - name: Pack Xiaolai Mono SC
         if: ${{ github.event.inputs.Xiaolai_Mono_SC == 'true' }}
-        run: dotnet pack Irihi.AvaloniaFonts.XiaolaiMonoSC -o nugets /p:Version=${{ env.VERSION }}
+        run: dotnet pack Irihi.Avalonia.Fonts.XiaolaiMonoSC -o nugets /p:Version=${{ env.VERSION }}
 
       - name: Add NuGet Source
         run: dotnet nuget add source ${{ secrets.IRIHI_NUGET_NIGHTLY_FEED }} -n irihi.tech -u ${{ secrets.IRIHI_NUGET_USERNAME }} -p ${{ secrets.IRIHI_NUGET_PASSWORD }} --store-password-in-clear-text

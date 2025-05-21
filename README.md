@@ -1,4 +1,4 @@
-# Irihi.AvaloniaFonts.XiaolaiSC
+# Irihi.Avalonia.Fonts.XiaolaiSC
 
 Xiaolai Fonts for Avalonia
 
@@ -7,13 +7,13 @@ Xiaolai Fonts for Avalonia
 ## Installation
 
 ```bash
-dotnet add package Irihi.AvaloniaFonts.XiaolaiSC
+dotnet add package Irihi.Avalonia.Fonts.XiaolaiSC
 ```
 
 or
 
 ```bash
-dotnet add package Irihi.AvaloniaFonts.XiaolaiMonoSC
+dotnet add package Irihi.Avalonia.Fonts.XiaolaiMonoSC
 ```
 
 Include Xiaolai Fonts in Program.cs:

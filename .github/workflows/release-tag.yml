@@ -15,10 +15,10 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Pack Xiaolai SC
-        run: dotnet pack Irihi.AvaloniaFonts.XiaolaiSC -o nugets
+        run: dotnet pack Irihi.Avalonia.Fonts.XiaolaiSC -o nugets
 
       - name: Pack Xiaolai Mono SC
-        run: dotnet pack Irihi.AvaloniaFonts.XiaolaiMonoSC -o nugets
+        run: dotnet pack Irihi.Avalonia.Fonts.XiaolaiMonoSC -o nugets
 
       - name: Publish NuGet package
         run: dotnet nuget push "./nugets/*.nupkg" --api-key ${{ secrets.NUGET_ORG_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
